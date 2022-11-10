@@ -1,0 +1,22 @@
+.appLogo {
+  cursor: pointer;
+  color: black;
+}
+
+.appLogo:hover {
+  color : green
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .navbarMenus span {
+  list-style: none;
+  padding: 10px;
+  margin: 35px;
+  cursor: pointer;
+}

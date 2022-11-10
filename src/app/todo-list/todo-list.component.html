@@ -1,0 +1,25 @@
+<app-todo-form></app-todo-form>
+
+<div *ngIf="todos.length > 0; else noTodos">
+  <h3 class="todoListTitle">All of your todos</h3>
+  <span class="deletedMessage" *ngIf="deletedMessage">{{deletedMessage}}</span>
+  <table class="todoListTable">
+    <thead>
+       <th>Name</th>
+       <th>Date Created</th>
+       <th>Action</th>
+    </thead>
+    <tr *ngFor="let todo of todos">
+        <td>{{todo.name}}</td> 
+        <td>{{todo.dateCreated}}</td>
+        <td><button type="button" (click)="deleteTodo(todo.id)">Delete</button></td>
+    </tr>
+   </table>
+</div>
+
+<div>
+  <ng-template #noTodos>
+    <h3 class="noTodsMessage">There are no todo items on the list. Please add some.</h3>
+  </ng-template>
+</div>
+  
