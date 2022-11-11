@@ -1,6 +1,4 @@
-<app-todo-form></app-todo-form>
-
-<div *ngIf="todos.length > 0; else noTodos">
+<div *ngIf="todos.length > 0; else noTodos" class="todosListTable">
   <h3 class="todoListTitle">All of your todos</h3>
   <span class="deletedMessage" *ngIf="deletedMessage">{{deletedMessage}}</span>
   <table class="todoListTable">
@@ -12,7 +10,7 @@
     <tr *ngFor="let todo of todos">
         <td>{{todo.name}}</td> 
         <td>{{todo.dateCreated}}</td>
-        <td><button type="button" (click)="deleteTodo(todo.id)">Delete</button></td>
+        <td><button type="button" (click)="deleteTodo(todo.id)" class="deleteTodoButton">Delete</button></td>
     </tr>
    </table>
 </div>

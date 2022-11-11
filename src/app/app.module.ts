@@ -10,7 +10,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FetchUserComponent } from './fetch-user/fetch-user.component';
 import { AboutAppComponent } from './about-app/about-app.component';
 import { AboutDeveloperComponent } from './about-developer/about-developer.component';
-import { TodoFormComponent } from './todo-form/todo-form.component'
 
 
 @NgModule({
@@ -21,7 +20,6 @@ import { TodoFormComponent } from './todo-form/todo-form.component'
     FetchUserComponent,
     AboutAppComponent,
     AboutDeveloperComponent,
-    TodoFormComponent
   ],
   imports: [
     BrowserModule,

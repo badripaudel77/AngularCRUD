@@ -1,3 +1,7 @@
+.todosListTable {
+  margin: 20px;
+  padding: 10px;
+}
 .todoListTitle {
    text-align: center;
    border-bottom: 2px solid rebeccapurple;
@@ -6,7 +10,7 @@
 .deletedMessage {
   text-align: center;
   color: green;
-  padding: 15px;
+  padding: 10px;
 }
 
 .todoListTable {
@@ -27,4 +31,14 @@
 
   .noTodsMessage {
     text-align: center;
+  }
+
+  .deleteTodoButton {
+    padding : 5px;
+    background-color: black;
+    color : white;
+    margin : 7px;
+    outline: none;
+    border-radius: 10px;
+    width: 100px;
   }

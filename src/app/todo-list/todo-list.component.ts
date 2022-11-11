@@ -12,23 +12,28 @@ export class TodoListComponent implements OnInit {
   placeholderTodos:any = []
   deletedMessage: string = '';
 
-  constructor(private todoService: TodoService) {
     // Dependency injection . Inject TodoService
+   constructor(private todoService: TodoService) {
+
    }
-  ngOnInit(): void {
+ 
+   ngOnInit(): void {
     // update state as soon as item is selected and added to localstorage 
-    this.placeholderTodos = [
+    this.todos = [
       {id: 123, name: 'Orange', dateCreated : new Date().getFullYear()},
       {id: 124,name: 'Apple', dateCreated : new Date().getFullYear()},
-      {id: 125, name: 'Banana', dateCreated : new Date().getFullYear()}
-    ]   
-    this.todos = localStorage.getItem("todoList") ? localStorage.getItem('todoList') : this.placeholderTodos
+      {id: 125, name: 'Banana', dateCreated : new Date().getFullYear()},
+      {id: 126, name: 'Avocado', dateCreated : new Date().getFullYear()},
+      {id: 127, name: 'Guava', dateCreated : new Date().getFullYear()},
+      {id: 128, name: 'Coconut', dateCreated : new Date().getFullYear()}
+
+    ] 
   }
 
   deleteTodo(id:number):void {
-    this.deletedMessage = "Todo Item with ID " + id + " deleted successfully.";
-    let result = this.todoService.deleteTodo(id, this.todos);
-    this.todos = result;    
+      this.deletedMessage = "Todo Item with ID " + id + " deleted successfully.";
+      let result = this.todoService.deleteTodo(id, this.todos);
+      this.todos = result;    
   }
 
 }
