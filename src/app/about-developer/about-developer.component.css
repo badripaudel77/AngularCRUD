@@ -1,0 +1,9 @@
+.aboutDeveloper {
+  width: 400px;
+  height: 250px;
+  background-color: rgba(128, 128, 128, 0.47);
+  margin: auto;
+}
+.aboutDeveloper h4 {
+  text-align: center;
+}
