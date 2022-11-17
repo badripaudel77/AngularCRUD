@@ -1,1 +1,20 @@
-<p>fetch-user works!</p>
+<h4 class="fetchUserHeading">{{heading}}</h4> <hr>
+
+<h3 *ngIf="!(users.length >0)" class="isUsersLoading">Loading</h3>
+
+<div *ngIf="errorMessage" class="userFetchingError"> {{errorMessage}}</div>
+
+<table class="usersTable" *ngIf="(users.length >0)">
+  <thead>
+     <th>ID</th>
+     <th>Name</th>
+     <th>Username</th>
+     <th>Email</th>
+  </thead>
+  <tr *ngFor="let user of users">
+    <td>{{user.id}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+  </tr>
+</table>

@@ -10,6 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FetchUserComponent } from './fetch-user/fetch-user.component';
 import { AboutAppComponent } from './about-app/about-app.component';
 import { AboutDeveloperComponent } from './about-developer/about-developer.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AboutDeveloperComponent } from './about-developer/about-developer.compo
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

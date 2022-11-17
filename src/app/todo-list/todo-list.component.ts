@@ -9,16 +9,15 @@ import { TodoService } from '../services/todo.service';
 export class TodoListComponent implements OnInit {
 
   todos:any = [];
-  placeholderTodos:any = []
   deletedMessage: string = '';
 
     // Dependency injection . Inject TodoService
    constructor(private todoService: TodoService) {
 
    }
- 
+
    ngOnInit(): void {
-    // update state as soon as item is selected and added to localstorage 
+    // update state as soon as item is selected and added to localstorage
     this.todos = [
       {id: 123, name: 'Orange', dateCreated : new Date().getFullYear()},
       {id: 124,name: 'Apple', dateCreated : new Date().getFullYear()},
@@ -27,13 +26,13 @@ export class TodoListComponent implements OnInit {
       {id: 127, name: 'Guava', dateCreated : new Date().getFullYear()},
       {id: 128, name: 'Coconut', dateCreated : new Date().getFullYear()}
 
-    ] 
+    ]
   }
 
   deleteTodo(id:number):void {
       this.deletedMessage = "Todo Item with ID " + id + " deleted successfully.";
       let result = this.todoService.deleteTodo(id, this.todos);
-      this.todos = result;    
+      this.todos = result;
   }
 
 }
