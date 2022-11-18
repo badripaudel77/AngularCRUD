@@ -2,7 +2,19 @@ interface User {
   id: number,
   name: string,
   username: string,
-  email: string
+  email: string,
+  address: Address
 }
 
-export default User;
+interface Address {
+  street: string;
+  city: string,
+  suite: string,
+  zipcode: string,
+  geo: {
+    lat: string,
+    lng: string
+  }
+}
+
+export {User, Address}

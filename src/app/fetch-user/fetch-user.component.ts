@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {JsonPlaceholderUserService} from "../services/json-placeholder-user.service";
-import User from "../models/User";
+import {User} from "../models/User";
 
 @Component({
   selector: 'app-fetch-user',
@@ -20,6 +20,7 @@ export class FetchUserComponent implements OnInit {
       this.jsonPlaceholderUserService.loadUsers().subscribe(response => {
           if(response) {
             this.users = response;
+            console.log("this.users >> ", this.users);
           }
         },
         error => {
