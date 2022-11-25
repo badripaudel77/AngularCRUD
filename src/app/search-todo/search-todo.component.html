@@ -1,0 +1,12 @@
+<!-- "Template driven form" -->
+<!--In this method, the conventional form tag is used to create forms. Angular automatically interprets and creates a form object representation for the tag.-->
+<!--Controls can be added to the form using the ngModel tag. Multiple controls can be grouped using the NGControlGroup module.-->
+<!--By adding the 'ngModel' directive in the input tag, form controls are added to every input field.-->
+<!-- To generate the JavaScript Representation, another directive called NgForm is assigned to a template variable., here myNgTodoForm is template variable.  -->
+<!-- https://www.simplilearn.com/tutorials/angular-tutorial/angular-forms#types_of_angular_forms -->
+
+<form #myNgTodoForm="ngForm" (ngSubmit)="onClickSubmit(myNgTodoForm)" class="myTodoForm">
+    <h3>{{searchTodoTitle}}</h3>
+    <input type="text" name="todoSearchString" placeholder="Enter Status to search" required minlength="5" maxlength="10" ngModel>
+    <input type="submit" value="submit">
+</form>

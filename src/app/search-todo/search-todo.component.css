@@ -1,0 +1,13 @@
+.myTodoForm {
+  text-align: center;
+  margin: auto;
+  background-color: gray;
+  color: black;
+  padding: 10px;
+}
+
+.myTodoForm input {
+  padding : 7px;
+  outline: none;
+  border: none;
+}

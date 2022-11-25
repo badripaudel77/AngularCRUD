@@ -11,6 +11,9 @@ import { FetchUserComponent } from './fetch-user/fetch-user.component';
 import { AboutAppComponent } from './about-app/about-app.component';
 import { AboutDeveloperComponent } from './about-developer/about-developer.component';
 import {HttpClientModule} from "@angular/common/http";
+import { UserTableDirective } from './directives/user-table.directive';
+import {SearchTodoComponent} from "./search-todo/search-todo.component";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -21,6 +24,8 @@ import {HttpClientModule} from "@angular/common/http";
     FetchUserComponent,
     AboutAppComponent,
     AboutDeveloperComponent,
+    UserTableDirective,
+    SearchTodoComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +33,7 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
