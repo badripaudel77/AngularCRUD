@@ -1,9 +1,20 @@
 .aboutDeveloper {
   width: 400px;
-  height: 250px;
+  min-height: 300px;
   background-color: rgba(128, 128, 128, 0.47);
   margin: auto;
+  margin-top: 100px;
 }
 .aboutDeveloper h4 {
   text-align: center;
+}
+
+.aboutDeveloper .btn {
+  width: 100%;
+}
+
+.aboutDeveloper img {
+  height: 200px;
+  width: 50%;
+  margin: auto;
 }

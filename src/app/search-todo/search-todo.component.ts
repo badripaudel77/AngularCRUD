@@ -6,8 +6,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./search-todo.component.css']
 })
 export class SearchTodoComponent implements OnInit {
-  statuses: string[] = ['good', 'bad', 'critical'];
-
   @Input() searchTodoTitle:string = '';
   @Input() todos:[]; // Input to this component from the parent component.
   @Output() searchStringEvent = new EventEmitter<string>(); // this component emits the property called searchStringEvent to the parent

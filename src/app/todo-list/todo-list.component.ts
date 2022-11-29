@@ -41,4 +41,8 @@ export class TodoListComponent implements OnInit {
      this.todos = filteredTodos;
   }
 
+  resetTodos() {
+     this.ngOnInit();
+  }
+
 }
