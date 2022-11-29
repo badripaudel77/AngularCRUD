@@ -25,7 +25,7 @@ export class FetchUserComponent implements OnInit {
         error => {
           this.errorMessage = error.message;
         });
-    }, 3000);
+    }, 2000);
   }
 
 }

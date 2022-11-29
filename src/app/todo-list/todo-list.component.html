@@ -1,6 +1,6 @@
 <app-search-todo [searchTodoTitle]="'Search for todos'" [todos] = "todos" (searchStringEvent) = "filterTodos($event)"></app-search-todo>
 <div *ngIf="todos.length > 0; else noTodos" class="todosListTable">
-  <h4 class="todoListTitle">All of your todos
+  <h4 class="todoListTitle">All of your todos &nbsp; &nbsp; &nbsp;
       <span class="resetTodos" (click)="resetTodos()" title="Reload Todos"><i class="fa fa-refresh fa-spin" style="font-size:24px"></i></span>
   </h4>
   <span class="deletedMessage" *ngIf="deletedMessage">{{deletedMessage}}</span>
@@ -22,8 +22,8 @@
 
 <div>
   <ng-template #noTodos>
-    <h4 class="noTodsMessage">There are no todo items on the list. Please add some
+    <h5 class="noTodsMessage">There are no todo items on the list. Please add some &nbsp; &nbsp; &nbsp;
       <span class="resetTodos" (click)="resetTodos()" title="Reload Todos"><i class="fa fa-refresh fa-spin" style="font-size:24px"></i></span>
-    </h4>
+    </h5>
   </ng-template>
 </div>
