@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {JsonPlaceholderUserService} from "../services/json-placeholder-user.service";
-import {User} from "../models/User";
+import {UserModel} from "../models/User.model";
 
 @Component({
   selector: 'app-fetch-user',
@@ -11,7 +11,7 @@ export class FetchUserComponent implements OnInit {
 
   heading:string = 'Fetch Users from the API';
   errorMessage:string = '';
-  users:User[] = [];
+  users:UserModel[] = [];
   constructor(private jsonPlaceholderUserService: JsonPlaceholderUserService) {}
 
   ngOnInit(): void {

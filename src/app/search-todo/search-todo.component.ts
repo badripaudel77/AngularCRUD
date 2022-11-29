@@ -11,7 +11,11 @@ export class SearchTodoComponent implements OnInit {
   @Input() searchTodoTitle:string = '';
   @Input() todos:[]; // Input to this component from the parent component.
 
-  constructor() {}
+  name: string = 'Badri';
+  isDisableSubmitButton: boolean = true;
+  constructor() {
+    setTimeout(() => this.isDisableSubmitButton = false, 3000);
+  }
 
   ngOnInit(): void { }
 

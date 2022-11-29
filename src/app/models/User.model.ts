@@ -1,12 +1,12 @@
-interface User {
+interface UserModel {
   id: number,
   name: string,
   username: string,
   email: string,
-  address: Address
+  address: AddressModel
 }
 
-interface Address {
+interface AddressModel {
   street: string;
   city: string,
   suite: string,
@@ -17,4 +17,4 @@ interface Address {
   }
 }
 
-export {User, Address}
+export {UserModel, AddressModel}
