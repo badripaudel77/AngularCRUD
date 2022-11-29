@@ -1,5 +1,5 @@
+<app-search-todo [searchTodoTitle]="'Search for todos'" [todos] = "todos" (searchStringEvent) = "filterTodos($event)"></app-search-todo>
 <div *ngIf="todos.length > 0; else noTodos" class="todosListTable">
-  <app-search-todo [searchTodoTitle]="'Search for todos'" [todos] = "todos"></app-search-todo>
   <h3 class="todoListTitle">All of your todos</h3>
   <span class="deletedMessage" *ngIf="deletedMessage">{{deletedMessage}}</span>
   <table class="todoListTable">

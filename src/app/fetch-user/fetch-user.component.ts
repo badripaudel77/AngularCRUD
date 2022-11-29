@@ -20,7 +20,6 @@ export class FetchUserComponent implements OnInit {
       this.jsonPlaceholderUserService.loadUsers().subscribe(response => {
           if(response) {
             this.users = response;
-            console.log("this.users >> ", this.users);
           }
         },
         error => {

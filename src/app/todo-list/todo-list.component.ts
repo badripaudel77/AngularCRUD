@@ -25,14 +25,20 @@ export class TodoListComponent implements OnInit {
       {id: 126, name: 'Avocado', dateCreated : new Date().getFullYear(), status: 'good'},
       {id: 127, name: 'Guava', dateCreated : new Date().getFullYear(), status: 'bad'},
       {id: 128, name: 'Coconut', dateCreated : new Date().getFullYear(), status: 'critical'}
-
     ]
   }
 
   deleteTodo(id:number):void {
-      this.deletedMessage = "Todo Item with ID " + id + " deleted successfully.";
       let result = this.todoService.deleteTodo(id, this.todos);
       this.todos = result;
+  }
+
+  filterTodos(searchQuery:string) {
+     this.ngOnInit();
+     let filteredTodos: any = this.todos.filter((todo:any) => {
+        return todo.status.toLowerCase() === searchQuery;
+     });
+     this.todos = filteredTodos;
   }
 
 }
