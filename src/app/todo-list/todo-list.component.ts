@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { TodoService } from '../services/todo.service';
 
 @Component({
@@ -11,10 +11,8 @@ export class TodoListComponent implements OnInit {
   todos:any = [];
   deletedMessage: string = '';
 
-    // Dependency injection . Inject TodoService
-   constructor(private todoService: TodoService) {
-
-   }
+  // DI : Inject TodoService in TodoListComponent
+  constructor(private todoService: TodoService) { }
 
    ngOnInit(): void {
     // update state as soon as item is selected and added to localstorage

@@ -42,6 +42,17 @@
     border-radius: 10px;
     width: 100px;
   }
+.viewDetailsTodoButton {
+    padding : 5px;
+    background-color: green;
+    color : white;
+    margin : 7px;
+    outline: none;
+    border-radius: 10px;
+    width: 100px;
+    text-decoration: none;
+    text-align: center;
+  }
 
   .resetTodos {
     color: rgba(58, 58, 166, 0.76);

@@ -1,4 +1,8 @@
-<app-search-todo [searchTodoTitle]="'Search for todos'" [todos] = "todos" (searchStringEvent) = "filterTodos($event)"></app-search-todo>
+<app-search-todo [searchTodoTitle]="'Search for todos'"
+                 [todos] = "todos"
+                 (searchStringEvent) = "filterTodos($event)">
+                 Searching TODOs is a piece of a cake !!!
+</app-search-todo>
 <div *ngIf="todos.length > 0; else noTodos" class="todosListTable">
   <h4 class="todoListTitle">All of your todos &nbsp; &nbsp; &nbsp;
       <span class="resetTodos" (click)="resetTodos()" title="Reload Todos"><i class="fa fa-refresh fa-spin" style="font-size:24px"></i></span>
@@ -8,14 +12,16 @@
     <thead>
        <th>Name</th>
        <th>Date Created</th>
-       <th>status</th>
+       <th>Status</th>
+       <th>Details</th>
        <th>Action</th>
     </thead>
     <tr *ngFor="let todo of todos">
         <td>{{todo.name}}</td>
         <td>{{todo.dateCreated}}</td>
         <td>{{todo.status}}</td>
-        <td><button type="button" (click)="deleteTodo(todo.id)" class="deleteTodoButton">Delete</button></td>
+      <td><a type="button" [routerLink]="['/todos/details', todo.id]" class="viewDetailsTodoButton">View</a></td>
+      <td><button type="button" (click)="deleteTodo(todo.id)" class="deleteTodoButton">Delete</button></td>
     </tr>
    </table>
 </div>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-search-todo',
@@ -9,6 +9,8 @@ export class SearchTodoComponent implements OnInit {
   @Input() searchTodoTitle:string = '';
   @Input() todos:[]; // Input to this component from the parent component.
   @Output() searchStringEvent = new EventEmitter<string>(); // this component emits the property called searchStringEvent to the parent
+
+  @ViewChild('todoSearchInput') todoSearchInput :ElementRef; // It can access the dom directly via local reference defined in the template.
 
   name: string = 'Badri';
   isDisableSubmitButton: boolean = true;
@@ -30,6 +32,7 @@ export class SearchTodoComponent implements OnInit {
    */
   onClickSubmit(result:any) {
     let searchString: string = result.value.todoSearchString.trim().toLowerCase();
+    // let searchString: string = this.todoSearchInput.nativeElement.value.trim().toLowerCase(); // same as above
     this.searchStringEvent.emit(searchString);
   }
 }

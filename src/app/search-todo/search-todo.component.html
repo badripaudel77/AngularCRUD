@@ -5,10 +5,14 @@
 <!-- To generate the JavaScript Representation, another directive called NgForm is assigned to a template variable., here myNgTodoForm is template variable.  -->
 <!-- https://www.simplilearn.com/tutorials/angular-tutorial/angular-forms#types_of_angular_forms -->
 <!-- #myNgTodoForm is the local reference syntax, this is accessible in all locations in this template. -->
+<!-- <ng-content></ng-content> is used to get what is passed in between opening and closing tag of the component.
+ By default in angular content inside is lost, <ng-content></ng-content> can get value inside of the component tags. -->
 
 <form #myNgTodoForm="ngForm" (ngSubmit)="onClickSubmit(myNgTodoForm)" class="myTodoForm">
     <h3>{{searchTodoTitle}}</h3>
+    <p style="color: blue;"><ng-content></ng-content></p>
+    <hr>
     <input type="text" name="todoSearchString" placeholder="Enter Status to search"
-           required minlength="5" maxlength="10" (ngModelChange)="onInputChange(myNgTodoForm)" ngModel>
+           required minlength="5" maxlength="10" (ngModelChange)="onInputChange(myNgTodoForm)" #todoSearchInput ngModel>
     <input type="submit" value="submit" [disabled]="isDisableSubmitButton">
 </form>
