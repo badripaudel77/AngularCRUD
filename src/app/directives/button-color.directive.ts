@@ -1,4 +1,4 @@
-import {Directive, ElementRef} from "@angular/core";
+import {Directive, ElementRef, HostListener, Input, Renderer2} from "@angular/core";
 
 /**
  * This manipulates color and bg color of the view button
@@ -8,8 +8,22 @@ import {Directive, ElementRef} from "@angular/core";
   selector: '[buttonColor]'
 })
 export class ButtonColorDirective {
-  constructor(private el: ElementRef) {
-    el.nativeElement.style.backgroundColor = 'green';
-    el.nativeElement.style.color = 'white';
+  @Input() backgroundColor: string = 'green';
+  @Input() hoverBackgroundColor: string = '#125e12';
+  @Input() buttonLetterColor: string = 'white';
+
+  // Event listener on directive
+  @HostListener('mouseenter') onMouseEnter(eventData: Event) {
+    this.renderer.setStyle(this.el.nativeElement, 'background-color', this.hoverBackgroundColor);
+  }
+
+  @HostListener('mouseleave') onMouseLeave(eventData: Event) {
+    this.el.nativeElement.style.backgroundColor = this.backgroundColor;
+    this.el.nativeElement.style.color = this.buttonLetterColor;
+  }
+
+  constructor(private el: ElementRef, private renderer: Renderer2) {
+    el.nativeElement.style.backgroundColor = this.backgroundColor;
+    el.nativeElement.style.color = this.buttonLetterColor;
   }
 }
