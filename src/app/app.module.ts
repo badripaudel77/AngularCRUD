@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {SearchTodoComponent} from "./search-todo/search-todo.component";
 import {FormsModule} from "@angular/forms";
 import { TodoItemDetailsComponent } from './todo-item-details/todo-item-details.component';
+import {ButtonColorDirective} from "./directives/button-color.directive";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TodoItemDetailsComponent } from './todo-item-details/todo-item-details.
     AboutAppComponent,
     AboutDeveloperComponent,
     SearchTodoComponent,
-    TodoItemDetailsComponent
+    TodoItemDetailsComponent,
+    ButtonColorDirective
   ],
   imports: [
     BrowserModule,
