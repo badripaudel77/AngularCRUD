@@ -1,6 +1,6 @@
 # Angular Application [for learning with most of the fundamental features of angular]
 
-![App Demo Image](./src/assets/images/Screen Shot 2022-12-04 at 9.54.01 AM.png?raw=true "SC demo")
+![App Demo Image](MyAngularApp/src/assets/images/Screen Shot 2022-12-04 at 9.54.01 AM.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
 
