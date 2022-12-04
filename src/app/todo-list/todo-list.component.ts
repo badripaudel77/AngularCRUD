@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { TodoService } from '../services/todo.service';
+import {LoggerService} from "../services/logger.service";
 
 @Component({
   selector: 'app-todo-list',
@@ -12,9 +13,10 @@ export class TodoListComponent implements OnInit {
   deletedMessage: string = '';
 
   // DI : Inject TodoService in TodoListComponent
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, private loggerService: LoggerService) { }
 
    ngOnInit(): void {
+    this.loggerService.log("Data is about to initialize.", "INFO");
     // update state as soon as item is selected and added to localstorage
     this.todos = [
       {id: 123, name: 'Orange', dateCreated : new Date().getFullYear(), status: 'good'},
@@ -40,6 +42,7 @@ export class TodoListComponent implements OnInit {
   }
 
   resetTodos() {
+     this.loggerService.log("Refreshing data ", "INFO");
      this.ngOnInit();
   }
 
