@@ -4,9 +4,7 @@
                  Searching TODOs is a piece of a cake !!!
 </app-search-todo>
 <div *ngIf="todos.length > 0; else noTodos" class="todosListTable">
-  <h4 class="todoListTitle">All of your todos &nbsp; &nbsp; &nbsp;
-      <span class="resetTodos" (click)="resetTodos()" title="Reload Todos"><i class="fa fa-refresh fa-spin" style="font-size:24px"></i></span>
-  </h4>
+  <h4 class="todoListTitle">All of your todos</h4>
   <span class="deletedMessage" *ngIf="deletedMessage">{{deletedMessage}}</span>
   <table class="todoListTable">
     <thead>
