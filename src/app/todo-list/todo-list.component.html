@@ -18,7 +18,7 @@
         <td>{{todo.name}}</td>
         <td>{{todo.dateCreated}}</td>
         <td>{{todo.status}}</td>
-      <td><a type="button" [routerLink]="['/todos/details', todo.id]" class="viewDetailsTodoButton"
+      <td><a type="button" (click)="getTodoDetails(todo)" class="viewDetailsTodoButton"
              buttonColor [backgroundColor]="'green'" [buttonLetterColor]="'white'">View</a></td>
       <td><button type="button" (click)="deleteTodo(todo.id)" class="deleteTodoButton"
                   buttonColor [hoverBackgroundColor]="'red'">Delete</button></td>

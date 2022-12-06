@@ -1,3 +1,11 @@
 <div class="todoItemDetails">
   <h4>Details of the the TODO with ID : {{todoItemId}}</h4><hr>
+   <div class="details-box" *ngIf="todo">
+     <p>Name : {{ todo.name }}</p>
+     <p>Date Created : {{ todo.dateCreated }}</p>
+     <p>Status : {{ todo.status }}</p>
+   </div>
+   <div *ngIf="!todo">
+     <h6>Don't try to manipulate URL directly. Navigate vai UI.</h6>
+   </div>
 </div>

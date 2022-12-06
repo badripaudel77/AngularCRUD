@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {TodoService} from "../services/todo.service";
 
 @Component({
   selector: 'app-todo-item-details',
@@ -8,12 +9,15 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class TodoItemDetailsComponent implements OnInit {
   todoItemId:number;
-  constructor(private route : ActivatedRoute) { }
+  todo: any = null;
+  constructor(private route : ActivatedRoute,
+              private todoService: TodoService) { }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     //console.log(routeParams);
     this.todoItemId = Number(routeParams.get('todoId'));
+    this.todo = this.todoService.getSelectedTodo();
   }
 
 }

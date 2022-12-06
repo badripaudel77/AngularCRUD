@@ -4,3 +4,13 @@
   padding: 30px;
   border: 2px solid orange;
 }
+
+.details-box {
+  height: 120px;
+  width: 300px;
+  background-color: rgba(128, 128, 128, 0.24);
+  color: black;
+  margin: auto;
+  text-align: left;
+  padding: 10px;
+}

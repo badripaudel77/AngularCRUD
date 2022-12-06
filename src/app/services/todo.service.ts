@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class TodoService{
-
+  private selectedTodo : any = null;
   todos : any = [];
   constructor() {
     this.todos = [
@@ -21,6 +21,13 @@ export class TodoService{
      let result =  this.todos.filter((todo:any) => id != todo.id)
      this.todos = result;
      return result;
+  }
+  setTodo(todo: any) {
+    this.selectedTodo = todo;
+  }
+
+  getSelectedTodo() {
+    return this.selectedTodo;
   }
 
 }
