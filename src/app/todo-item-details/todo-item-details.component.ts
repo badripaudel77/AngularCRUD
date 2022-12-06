@@ -17,7 +17,7 @@ export class TodoItemDetailsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     //console.log(routeParams);
     this.todoItemId = Number(routeParams.get('todoId'));
-    this.todo = this.todoService.getSelectedTodo();
+    this.todo = this.todoService.getSelectedTodo(this.todoItemId);
   }
 
 }

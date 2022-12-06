@@ -22,11 +22,17 @@ export class TodoService{
      this.todos = result;
      return result;
   }
-  setTodo(todo: any) {
-    this.selectedTodo = todo;
-  }
 
-  getSelectedTodo() {
+  getSelectedTodo(todoId: number) {
+    let element;
+    for(let todoItem of this.todos) {
+      if(todoItem.id === todoId) {
+        element = todoItem;
+      }
+    }
+    if(element) {
+      this.selectedTodo = element;
+    }
     return this.selectedTodo;
   }
 

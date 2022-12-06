@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { TodoService } from '../services/todo.service';
 import {LoggerService} from "../services/logger.service";
 import {Router} from "@angular/router";
@@ -46,7 +46,6 @@ export class TodoListComponent implements OnInit {
   getTodoDetails(todo: any) {
     // complex calculations
     // done, redirect to another component.
-    this.todoService.setTodo(todo);
     this.router.navigate([`/todos/details/${todo.id}`]);
   }
 
