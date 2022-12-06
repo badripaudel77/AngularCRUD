@@ -28,6 +28,7 @@ export class TodoService{
     for(let todoItem of this.todos) {
       if(todoItem.id === todoId) {
         element = todoItem;
+        break;
       }
     }
     if(element) {

@@ -1,5 +1,10 @@
 <div class="todoItemDetails">
-  <h4>Details of the the TODO with ID : {{todoItemId}}</h4><hr>
+  <h4>
+    Details of the the TODO with ID : {{todoItemId}}
+    <span *ngIf="isLoad" style="font-style: italic; font-size: 13px; color: orange;">
+      This one is Special <span *ngIf="flag">#{{flag}}</span>
+    </span>
+  </h4><hr>
    <div class="details-box" *ngIf="todo">
      <p>Name : {{ todo.name }}</p>
      <p>Date Created : {{ todo.dateCreated }}</p>

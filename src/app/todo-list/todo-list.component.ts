@@ -46,7 +46,10 @@ export class TodoListComponent implements OnInit {
   getTodoDetails(todo: any) {
     // complex calculations
     // done, redirect to another component.
-    this.router.navigate([`/todos/details/${todo.id}`]);
+    // this.router.navigate([`/todos/details/${todo.id}`]);
+    this.router.navigate(['todos' , 'details', todo.id],
+      { queryParams: {load: todo.id === 123 ? true : false},
+        fragment: 'single-load'}); // for illustration only.
   }
 
 }
