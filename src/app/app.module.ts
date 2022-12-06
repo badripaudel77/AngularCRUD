@@ -17,6 +17,7 @@ import { TodoItemDetailsComponent } from './todo-item-details/todo-item-details.
 import {ButtonColorDirective} from "./directives/button-color.directive";
 import {TodoService} from "./services/todo.service";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {AuthGuard, AuthService} from "./guards/auth-guard";
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
     HttpClientModule,
     FormsModule
   ],
-  providers: [TodoService], // Inject at the possible higher component [ or in module file], single instance of TodoService will be shared.
+  providers: [TodoService, AuthService, AuthGuard], // Inject at the possible higher component [ or in module file], single instance of TodoService will be shared.
   bootstrap: [AppComponent]
 })
 export class AppModule { }
