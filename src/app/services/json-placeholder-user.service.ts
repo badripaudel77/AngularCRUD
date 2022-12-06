@@ -4,7 +4,8 @@ import urls from "../constants/ServerURL";
 import {Observable} from "rxjs";
 import {LoggerService} from "./logger.service";
 
-
+// If another service needs to be injected in this service, @Injectable() is required.
+// For example, LoggerService is injected here.
 @Injectable({
   providedIn: 'root'
 })
