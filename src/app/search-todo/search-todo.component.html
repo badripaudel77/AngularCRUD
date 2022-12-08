@@ -13,6 +13,14 @@
     <p style="color: blue;"><ng-content></ng-content></p>
     <hr>
     <input type="text" name="todoSearchString" placeholder="Enter Status to search"
-           required minlength="5" maxlength="10" (ngModelChange)="onInputChange(myNgTodoForm)" #todoSearchInput ngModel>
-    <input type="submit" value="submit" [disabled]="isDisableSubmitButton">
+           required #todoSearchInput [(ngModel)]="todoSearchString">
+    <input type="submit" value="submit" [disabled]="!myNgTodoForm.valid" > <br>
+    <button type="button" (click)="setCriticalStatus()"
+            style="width: 250px; background: orange; color: white;">Set critical status
+    </button><br>
+    <span class="invalid-form" *ngIf="!myNgTodoForm.valid && myNgTodoForm.touched; else elseBlock">Please, fill the required fields.</span>
 </form>
+
+ <ng-template #elseBlock>
+   <span style="color: yellowgreen;" *ngIf="todoSearchString">You typed : {{ todoSearchString }}</span> <br>
+ </ng-template>

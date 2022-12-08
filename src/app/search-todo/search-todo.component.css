@@ -11,3 +11,13 @@
   outline: none;
   border: none;
 }
+
+/* automatically given by angular, can be inspected or via docs */
+input[name='todoSearchString'].ng-invalid.ng-touched {
+  border: 1px solid orange;
+}
+
+.invalid-form {
+  color: orangered;
+  font-style: italic;
+}
