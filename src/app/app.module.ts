@@ -12,7 +12,7 @@ import { AboutAppComponent } from './about-app/about-app.component';
 import { AboutDeveloperComponent } from './about-developer/about-developer.component';
 import {HttpClientModule} from "@angular/common/http";
 import {SearchTodoComponent} from "./search-todo/search-todo.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TodoItemDetailsComponent } from './todo-item-details/todo-item-details.component';
 import {ButtonColorDirective} from "./directives/button-color.directive";
 import {TodoService} from "./services/todo.service";
@@ -39,7 +39,8 @@ import {AuthGuard, AuthService} from "./guards/auth-guard";
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [TodoService, AuthService, AuthGuard], // Inject at the possible higher component [ or in module file], single instance of TodoService will be shared.
   bootstrap: [AppComponent]

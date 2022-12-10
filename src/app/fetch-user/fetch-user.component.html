@@ -1,4 +1,4 @@
-<h4 class="fetchUserHeading">{{heading}}</h4> <hr>
+<h5 class="fetchUserHeading" style="padding: 10px; margin: 15px;">{{heading}}</h5> <hr>
 
 <h3 *ngIf="!(users.length >0)" class="isUsersLoading">
   <i class="fa fa-cog fa-spin"></i>
@@ -6,19 +6,63 @@
 
 <div *ngIf="errorMessage" class="userFetchingError"> {{errorMessage}}</div>
 
-<table class="usersTable" *ngIf="(users.length >0)">
-  <thead>
-     <th>ID</th>
-     <th>Name</th>
-     <th>Username</th>
-     <th>Email</th>
-     <th>Address</th>
-  </thead>
-  <tr *ngFor="let user of users">
-    <td>{{user.id}}</td>
-    <td>{{user.name}}</td>
-    <td>{{user.username}}</td>
-    <td>{{user.email}}</td>
-    <td>{{user.address.city}}, {{user.address.street}}, {{user.address.zipcode}} ({{user.address.geo.lat}})</td>
-  </tr>
-</table>
+<div *ngIf="(users.length >0)">
+  <!-- User Searching form, using reactive forms module. -->
+  <!-- REF : https://angular.io/guide/reactive-forms -->
+<!--  <form>-->
+<!--       <div style="text-align: center;">-->
+<!--         <div>-->
+<!--           <label [for]="'searchInputString'">Search Users: &nbsp; &nbsp;</label>-->
+<!--           <input id="searchInputString"-->
+<!--                  [formControl]="searchInputString"-->
+<!--                  (ngModelChange)="searchUsers()"-->
+<!--                  placeholder="enter username"-->
+<!--                  style="padding: 3px;"-->
+<!--                  [type]="inputType" required>-->
+<!--         </div>-->
+<!--         <span class="errorMessage"-->
+<!--               *ngIf="!searchInputString.valid && (searchInputString.touched || searchInputString.dirty)"-->
+<!--               style="color: red;"> &nbsp; &nbsp; Required**</span>-->
+<!--       </div>-->
+<!--  </form>-->
+  <form [formGroup]="searchInputStringGroup" autocomplete="off">
+    <div style="text-align: center;">
+      <div>
+        <label [for]="'searchInputString'">Search Users: &nbsp; &nbsp;</label>
+        <input id="searchInputString"
+               formControlName="searchInputElGroup"
+               (ngModelChange)="searchUsers()"
+               placeholder="enter username"
+               style="padding: 3px;"
+               [type]="inputType" required>
+        <div formArrayName="tags">
+          <span>Your tags : </span>
+          <button type="button" (click)="addTag()" *ngFor="let tag of searchInputStringGroup.get('tags').controls; let i = index;">Add Tag</button>
+          <input type="text" name="tag" id="tag" formControlName="i">
+        </div>
+      </div>
+      <span class="errorMessage"
+            *ngIf="!searchInputStringGroup.valid && (searchInputStringGroup.touched || searchInputStringGroup.dirty)"
+            style="color: red;"> &nbsp; &nbsp; Required**</span>
+    </div>
+  </form>
+  <div *ngIf="searchedUser"
+       style="text-align: center; color: white; background: green; max-width: 400px;
+       margin: auto; padding: 10px;">User with username : "{{ searchedUser.username  }}" found</div>
+  <table class="usersTable">
+    <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Address</th>
+    </thead>
+    <tr *ngFor="let user of users" [ngClass]="user.highlighted? 'highlight': ''">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.address.city}}, {{user.address.street}}, {{user.address.zipcode}} ({{user.address.geo.lat}})</td>
+    </tr>
+  </table>
+</div>

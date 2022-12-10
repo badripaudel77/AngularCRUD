@@ -18,7 +18,7 @@
     <button type="button" (click)="setCriticalStatus()"
             style="width: 250px; background: orange; color: white;">Set critical status
     </button><br>
-    <span class="invalid-form" *ngIf="!myNgTodoForm.valid && myNgTodoForm.touched; else elseBlock">Please, fill the required fields.</span>
+    <span class="invalid-form" *ngIf="!myNgTodoForm.valid && myNgTodoForm.touched; else elseBlock">** Please, fill the required fields **</span>
 </form>
 
  <ng-template #elseBlock>

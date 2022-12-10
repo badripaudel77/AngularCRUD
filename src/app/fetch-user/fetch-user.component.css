@@ -52,3 +52,7 @@ tr:nth-child(even) {
     content: "...";
   }
 }
+
+.highlight {
+  background-color: yellow;
+}

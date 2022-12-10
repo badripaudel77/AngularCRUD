@@ -3,6 +3,7 @@ interface UserModel {
   name: string,
   username: string,
   email: string,
+  highlighted: boolean,
   address: AddressModel
 }
 
