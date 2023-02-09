@@ -80,9 +80,4 @@ export class FetchUserComponent implements OnInit {
     });
   }
 
-  addTag() {
-    tags = <FormArray>this.searchInputStringGroup.get('tags');
-    tags.push(new FormControl(null, Validators.required));
-  }
-
 }

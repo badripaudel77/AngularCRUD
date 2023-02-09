@@ -35,11 +35,6 @@
                placeholder="enter username"
                style="padding: 3px;"
                [type]="inputType" required>
-        <div formArrayName="tags">
-          <span>Your tags : </span>
-          <button type="button" (click)="addTag()" *ngFor="let tag of searchInputStringGroup.get('tags').controls; let i = index;">Add Tag</button>
-          <input type="text" name="tag" id="tag" formControlName="i">
-        </div>
       </div>
       <span class="errorMessage"
             *ngIf="!searchInputStringGroup.valid && (searchInputStringGroup.touched || searchInputStringGroup.dirty)"
