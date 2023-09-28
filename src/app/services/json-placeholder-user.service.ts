@@ -11,10 +11,10 @@ import {LoggerService} from "./logger.service";
 })
 export class JsonPlaceholderUserService {
 
-  constructor(private http:HttpClient, private loggerService: LoggerService) { }
+  constructor(private http: HttpClient, private loggerService: LoggerService) { }
 
-   loadUsers():Observable<any> {
-     let respObservable = this.http.get(`${urls.jsonPlaceholderBaseURL}/users`);
+   loadUsers():Observable<any[]> {
+     let respObservable = this.http.get<any []>(`${urls.jsonPlaceholderBaseURL}/users`);
      this.loggerService.log("Users from the API fetched.", 'INFO');
      return respObservable;
   }

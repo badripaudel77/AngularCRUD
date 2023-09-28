@@ -2,6 +2,7 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTre
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 
+import { AuthService } from "../services/auth-service";
 /**
  * Angular guard runs before running the code
  * Useful to check if route is accessible or not or intercepting requests.
@@ -13,9 +14,7 @@ import {Injectable} from "@angular/core";
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private router : Router) {
-
-  }
+  constructor(private authService: AuthService, private router : Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
@@ -31,32 +30,5 @@ export class AuthGuard implements CanActivate {
           return false;
         }
       });
-  }
-}
-
-// fake auth service
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthService {
-  private isLoggedIn : boolean = true;
-
-  isAuthenticated() {
-    const promise = new Promise(
-      (resolve, reject) => {
-        setTimeout(() => {
-          resolve(this.isLoggedIn)
-        }, 1000)
-      }
-    );
-    return promise;
-  }
-
-  login() {
-    this.isLoggedIn = true;
-  }
-
-  logout() {
-    this.isLoggedIn = false;
   }
 }

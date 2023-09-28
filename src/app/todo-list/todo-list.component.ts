@@ -36,6 +36,7 @@ export class TodoListComponent implements OnInit {
         return todo.status.toLowerCase() === searchQuery;
      });
      this.todos = filteredTodos;
+     console.log("finally emitted and caught here ::: ", searchQuery)
   }
 
   resetTodos() {

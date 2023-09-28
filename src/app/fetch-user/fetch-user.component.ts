@@ -42,6 +42,7 @@ export class FetchUserComponent implements OnInit {
   ngOnInit(): void {
     // just to mimic the loading of users from the server.
     setTimeout(() => {
+      console.log("fetching user ...");
       this.jsonPlaceholderUserService.loadUsers().subscribe(response => {
           if(response) {
             this.users = response;

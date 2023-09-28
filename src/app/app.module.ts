@@ -10,15 +10,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FetchUserComponent } from './fetch-user/fetch-user.component';
 import { AboutAppComponent } from './about-app/about-app.component';
 import { AboutDeveloperComponent } from './about-developer/about-developer.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {SearchTodoComponent} from "./search-todo/search-todo.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TodoItemDetailsComponent } from './todo-item-details/todo-item-details.component';
 import {ButtonColorDirective} from "./directives/button-color.directive";
 import {TodoService} from "./services/todo.service";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
-import {AuthGuard, AuthService} from "./guards/auth-guard";
-
+import {AuthGuard} from "./guards/auth-guard";
+import {MyInterceptor} from "./interceptors/my-interceptor";
+import { AuthService } from "./services/auth-service";
 
 @NgModule({
   declarations: [
@@ -40,9 +41,14 @@ import {AuthGuard, AuthService} from "./guards/auth-guard";
     MatToolbarModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [TodoService, AuthService, AuthGuard], // Inject at the possible higher component [ or in module file], single instance of TodoService will be shared.
+  providers: [TodoService, AuthService, AuthGuard, {
+    provide : HTTP_INTERCEPTORS,
+    useClass: MyInterceptor,
+    multi: true
+  }],
+  // Inject at the possible higher component [ or in module file], single instance of TodoService will be shared.
   bootstrap: [AppComponent]
 })
 export class AppModule { }

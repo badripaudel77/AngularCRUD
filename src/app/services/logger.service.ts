@@ -24,6 +24,5 @@ export class LoggerService{
           console.log('default');
           message = "DEBUG ::: " + message;
       }
-      console.log(message);
   }
 }
