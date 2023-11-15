@@ -18,6 +18,7 @@ import {ButtonColorDirective} from "./directives/button-color.directive";
 import {TodoService} from "./services/todo.service";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AuthGuard, AuthService} from "./guards/auth-guard";
+import { DeveloperAddressComponent } from './about-developer/developer-address/developer-address.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {AuthGuard, AuthService} from "./guards/auth-guard";
     PageNotFoundComponent,
     SearchTodoComponent,
     TodoItemDetailsComponent,
-    ButtonColorDirective
+    ButtonColorDirective,
+    DeveloperAddressComponent
   ],
   imports: [
     BrowserModule,

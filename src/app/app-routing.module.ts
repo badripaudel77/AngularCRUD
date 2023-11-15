@@ -7,6 +7,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import {TodoItemDetailsComponent} from "./todo-item-details/todo-item-details.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AuthGuard} from "./guards/auth-guard";
+import {DeveloperAddressComponent} from "./about-developer/developer-address/developer-address.component";
 
 const routes: Routes = [
   { path: '', component: TodoListComponent, pathMatch: 'full' },
@@ -18,7 +19,16 @@ const routes: Routes = [
   },
   { path: 'fetch/users', component: FetchUserComponent, pathMatch: 'prefix' },
   { path: 'about/app', component: AboutAppComponent, pathMatch: 'full' },
-  { path: 'about/developer', component: AboutDeveloperComponent, pathMatch: 'full' },
+  {
+    path: 'about/developer', component: AboutDeveloperComponent,
+    children: [
+      {
+        path: 'address', // child route : This means /about/developer/address
+        component: DeveloperAddressComponent,
+        //title: "Title for this component if any"
+      }
+    ]
+  },
   { path: '**', component: PageNotFoundComponent } // !important ::: must be the last one.
 ];
 
