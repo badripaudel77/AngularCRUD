@@ -10,7 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { FetchUserComponent } from './fetch-user/fetch-user.component';
 import { AboutAppComponent } from './about-app/about-app.component';
 import { AboutDeveloperComponent } from './about-developer/about-developer.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {SearchTodoComponent} from "./search-todo/search-todo.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TodoItemDetailsComponent } from './todo-item-details/todo-item-details.component';
@@ -19,6 +19,7 @@ import {TodoService} from "./services/todo.service";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AuthGuard, AuthService} from "./guards/auth-guard";
 import { DeveloperAddressComponent } from './about-developer/developer-address/developer-address.component';
+import {DemoInterceptorService} from "./demo-interceptor.service";
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { DeveloperAddressComponent } from './about-developer/developer-address/d
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [TodoService, AuthService, AuthGuard], // Inject at the possible higher component [ or in module file], single instance of TodoService will be shared.
+  // Inject at the possible higher component [ or in module file], single instance of TodoService will be shared.
+  providers: [TodoService, AuthService, AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: DemoInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
