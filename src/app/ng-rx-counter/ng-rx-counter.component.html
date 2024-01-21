@@ -1,0 +1,15 @@
+<div class="counter-container">
+  <br>
+  <h6>This Counter is to demonstrate angular and ngrx usage.</h6>
+  <div class="counter">
+    <button class="btn increment-btn" (click) ="incrementCount();">Increment</button>
+    <button class="btn decrement-btn" (click)="decrementCount();">Decrement</button>
+    <button class="btn reset-btn" (click)="resetCount();">Reset</button>
+  </div>
+
+  <div class="counter">
+    <span> Current value of the counter is : <h5> {{ count$ | async }}</h5></span>
+    <!-- <span> Current value of the counter is : <h5> {{ count }}</h5></span> -->
+  </div>
+
+</div>

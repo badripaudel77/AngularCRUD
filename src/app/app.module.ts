@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +21,9 @@ import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AuthGuard, AuthService} from "./guards/auth-guard";
 import { DeveloperAddressComponent } from './about-developer/developer-address/developer-address.component';
 import {DemoInterceptorService} from "./demo-interceptor.service";
+import { NgRxCounterComponent } from './ng-rx-counter/ng-rx-counter.component';
 
+import  { counterReducer } from './store/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import {DemoInterceptorService} from "./demo-interceptor.service";
     SearchTodoComponent,
     TodoItemDetailsComponent,
     ButtonColorDirective,
-    DeveloperAddressComponent
+    DeveloperAddressComponent,
+    NgRxCounterComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import {DemoInterceptorService} from "./demo-interceptor.service";
     MatToolbarModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({ counter : counterReducer }, {}) // include for ngrx/store.
   ],
   // Inject at the possible higher component [ or in module file], single instance of TodoService will be shared.
   providers: [TodoService, AuthService, AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: DemoInterceptorService, multi: true }],

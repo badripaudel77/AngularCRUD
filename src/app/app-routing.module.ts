@@ -8,16 +8,18 @@ import {TodoItemDetailsComponent} from "./todo-item-details/todo-item-details.co
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {AuthGuard} from "./guards/auth-guard";
 import {DeveloperAddressComponent} from "./about-developer/developer-address/developer-address.component";
+import {NgRxCounterComponent} from "./ng-rx-counter/ng-rx-counter.component";
 
 const routes: Routes = [
   { path: '', component: TodoListComponent, pathMatch: 'full' },
   {
     path: 'todos/details/:todoId',
     component: TodoItemDetailsComponent,
-    canActivate: [AuthGuard], // auth guard will act as intercepting and logic inside of this service will decide what to do.
+    canActivate: [AuthGuard], // auth guard will act as intercepting and logic inside this service will decide what to do.
     pathMatch: 'full'
   },
   { path: 'fetch/users', component: FetchUserComponent, pathMatch: 'prefix' },
+  { path: 'ngrx/counters', component: NgRxCounterComponent, pathMatch: 'prefix' },
   { path: 'about/app', component: AboutAppComponent, pathMatch: 'full' },
   {
     path: 'about/developer', component: AboutDeveloperComponent,
