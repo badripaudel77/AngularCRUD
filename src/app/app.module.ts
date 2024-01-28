@@ -24,6 +24,10 @@ import {DemoInterceptorService} from "./demo-interceptor.service";
 import { NgRxCounterComponent } from './ng-rx-counter/ng-rx-counter.component';
 
 import  { counterReducer } from './store/counter.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import {CounterEffects} from "./store/counter.effects";
+import {apiDataReducer} from "./store/api.reducer";
+import {ApiEffects} from "./store/api.effects";
 
 @NgModule({
   declarations: [
@@ -48,7 +52,10 @@ import  { counterReducer } from './store/counter.reducer';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ counter : counterReducer }, {}) // include for ngrx/store.
+    // include for ngrx/store. Register all the reducers here.
+    StoreModule.forRoot({ counter : counterReducer, jsonPlaceholderAPI: apiDataReducer }, {}),
+    // Include for ngrx/effect, register all the ngrx effects here.
+    EffectsModule.forRoot([CounterEffects, ApiEffects])
   ],
   // Inject at the possible higher component [ or in module file], single instance of TodoService will be shared.
   providers: [TodoService, AuthService, AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: DemoInterceptorService, multi: true }],

@@ -5,11 +5,16 @@
     <button class="btn increment-btn" (click) ="incrementCount();">Increment</button>
     <button class="btn decrement-btn" (click)="decrementCount();">Decrement</button>
     <button class="btn reset-btn" (click)="resetCount();">Reset</button>
+    <button class="btn api-effect" (click)="callApiUsingDispatch();">Make Request(Dispatch)</button>
   </div>
 
   <div class="counter">
     <span> Current value of the counter is : <h5> {{ count$ | async }}</h5></span>
-    <!-- <span> Current value of the counter is : <h5> {{ count }}</h5></span> -->
+  </div>
+
+  <div>
+      Current data from api <br>
+      {{ userList | json }}
   </div>
 
 </div>

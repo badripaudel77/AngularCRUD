@@ -43,6 +43,11 @@ body {
   color: white;
 }
 
+.api-effect {
+  background-color: #89b940;
+  color: whitesmoke;
+}
+
 h1 {
   color: #333;
 }
