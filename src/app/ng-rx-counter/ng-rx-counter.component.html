@@ -11,10 +11,21 @@
   <div class="counter">
     <span> Current value of the counter is : <h5> {{ count$ | async }}</h5></span>
   </div>
+  <hr>
+  <br>
 
-  <div>
-      Current data from api <br>
-      {{ userList | json }}
+  <h4>Current data from api : </h4>
+  <hr>
+  <div></div>
+  <div *ngIf="(users$ | async)?.loading">
+    <span>Please wait while data is loading ... </span>
+  </div>
+
+  <div *ngIf="!(users$ | async)?.loading">
+      <div *ngFor="let user of  (users$ | async)?.usersData">
+        <span>{{ user | json }}</span> <br>
+        <hr>
+      </div>
   </div>
 
 </div>

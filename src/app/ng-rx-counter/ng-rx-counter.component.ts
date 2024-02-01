@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import { increment, decrement, reset } from '../store/counter.actions';
 import {UserModel} from "../models/User.model";
 import {loadUsersFromAPI} from "../store/api.actions";
+import {ApiDataState} from "../store/api.reducer";
 
 @Component({
   selector: 'app-ng-rx-counter',
@@ -15,23 +16,17 @@ import {loadUsersFromAPI} from "../store/api.actions";
 export class NgRxCounterComponent implements OnInit {
 
   count$: Observable<number>;
-  users$: Observable<UserModel[]>;
+  users$: Observable<ApiDataState>;
 
   byValue: number = 10;
   userList: UserModel[];
   error: string = '';
-  isLoading$: Observable<boolean>;
+  isLoading: boolean = false;
   // count:number = 0;
 
   constructor(private store: Store<{counter: number}>,
-               private apiStore: Store<{jsonPlaceholderAPI: UserModel[] }>) {
+               private apiStore: Store<{jsonPlaceholderAPI: ApiDataState }>) {
     this.count$ = this.store.select("counter");
-    this.users$ = this.apiStore.select("jsonPlaceholderAPI");
-
-    this.users$.subscribe(data => {
-      console.log("API data is :::: ", data);
-      this.userList = data;
-    });
 
     //Since store.select('key') yields observable, it can be subscribed normally.
     // this.count$.subscribe(counter => {
@@ -42,7 +37,15 @@ export class NgRxCounterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.users$ = this.apiStore.select("jsonPlaceholderAPI");
+    /**
+     * This can be subscribed.
+     */
+    // this.users$.subscribe(data => {
+    //   console.log("API data is :::: ", "is loading = ", data.loading, "error = ", data.error);
+    //   this.userList = data.usersData;
+    //   this.isLoading = data.loading;
+    // });
   }
 
   incrementCount() {
